@@ -15,10 +15,16 @@
 </P>
 
   <marquee>
-    <Button onmousedown="alert('YOU WON')" onmouseover="alert('YOU LOST !!! hahahah LOSER')">
+    <Button id="btn" onmousedown="alert('YOU WON')" onmouseover="alert('YOU LOST !!! hahahah LOSER')">
       CLICK
     </Button>
   </marquee>
 
+
+  <style>
+    @media (max-width: 1026px) {
+    #btn { display: none; }
+}
+  </style>
 
 </HTML>
