@@ -1,27 +1,64 @@
-require('dotenv').config();
-const { Client, IntentsBitField } = require('discord.js');
 
-const client = new Client({
-  intents: [
-    IntentsBitField.Flags.Guilds,
-    IntentsBitField.Flags.GuildMembers,
-    IntentsBitField.Flags.GuildMessages,
-    IntentsBitField.Flags.MessageContent,
-  ],
-});
 
-client.on('ready', (c) => {
-  console.log(`✅ ${c.user.tag} is online.`);
-});
 
-client.on('messageCreate', (message) => {
-  if (message.author.bot) {
-    return;
-  }
+<HTML>
 
-  if (message.content === 'hello') {
-    message.reply('hello');
-  }
-});
+  <link rel="stylesheet" href="style.css">
+  
+  <script>
+    var magn = 8000; 
 
-client.login(process.env.TOKEN);
+      setInterval(() => {
+
+        root = document.querySelector(':root');
+
+        var finX = Math.round(Math.random()*800) ;
+        var finY = Math.round(Math.random()*600) ;
+
+        var initX = getComputedStyle(root).getPropertyValue('--posX');
+        var initY = getComputedStyle(root).getPropertyValue('--posY');
+
+        
+        root.style.setProperty('--initPosX',initX);
+        root.style.setProperty('--initPosY',initY);
+        
+        root.style.setProperty('--posX',finX+ "px");
+        root.style.setProperty('--posX',finY+ "px");
+        
+        kX = Number(initX.split("px")[0]);
+        kY = Number(initY.split("px")[0]);
+        
+        console.log(kX,kY);
+        console.log(finX,finY);
+        
+        console.log(getComputedStyle(root).getPropertyValue('--delay'))
+
+        magn =  Math.round(Math.pow(Math.pow((finX-kX),2) + Math.pow((finY-kX),2),1/2)) *10; 
+        
+        root.style.setProperty('--delay',magn+"ms");
+
+        
+
+      }, 8000);
+
+
+  </script>
+
+  <P>
+
+  
+  CLICK TO WIN
+
+
+</P>
+
+
+    <Button id="btn" onmousedown="alert('YOU WON')" onmouseover="alert('YOU LOST !!! hahahah LOSER')">
+      CLICK
+    </Button>
+
+
+
+  </style>
+
+</HTML>
